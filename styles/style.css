@@ -105,9 +105,9 @@
 
 :root {
   /* Typography */
-  --font-family-body: "Inter", sans-serif;
-  --font-family-heading: "Eczar", serif;
-  --font-family-project-title: "Eczar", serif;
+  --font-family-body: "Dongle", sans-serif;
+  --font-family-heading: "Special Gothic Expanded One", serif;
+  --font-family-project-title: "Special Gothic Expanded One", serif;
   /* Core Colours */
   --color-text-primary: #222;
   --color-text-secondary: #333;
