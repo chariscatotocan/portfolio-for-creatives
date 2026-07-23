@@ -32,11 +32,11 @@
 /* TODO: Replace these Google Fonts with the ones you want to use on your site. */
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
-/* Eczar Font (for headers or special text) */
+/* Special Gothic Expanded One Font (for headers or special text) */
 @import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap");
 
-/* Rubik Font (clean and modern for body text) */
-@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap");
+/* Outfit (clean and modern for body text) */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 /* Inter Font (great for readability and minimal design) */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -105,7 +105,7 @@
 
 :root {
   /* Typography */
-  --font-family-body: "Dongle", sans-serif;
+  --font-family-body: "Outfit", sans-serif;
   --font-family-heading: "Special Gothic Expanded One", serif;
   --font-family-project-title: "Special Gothic Expanded One", serif;
   /* Core Colours */
