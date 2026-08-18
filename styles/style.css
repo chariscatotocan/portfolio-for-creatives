@@ -220,7 +220,7 @@ body {
   background: var(--color-bg);
   display: flex;
   flex-direction: column;
-  min-height: 500vh;
+  min-height: 100vh;
 }
 
 /* ------------------------------- */
@@ -557,7 +557,7 @@ sup {
 }
 
 .hero-photo {
-  background-image: url('../assets/branding-images/chipmunk-header-v5.jpg');
+  background-image: url('../assets/branding-images/chipmunk-header-v9.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -704,9 +704,8 @@ a.nav-link-primary:hover {
   padding: var(--padding-tiny);
 }
 
-.nav-branding-logo {
-  width: 3rem;
-  /* TODO: Adjust the width of the logo on mobile devices here */
+.nav-branding-logo img {
+  width: 10rem;
 }
 
 .hero-headline-wrapper {
@@ -1439,7 +1438,7 @@ to keep your styles reusable and consistent.
   }
 
   .nav-branding-logo {
-    width: 5rem;
+    width: 10rem;
     /* TODO: Adjust the width of the logo on large devices here. */
   }
 
