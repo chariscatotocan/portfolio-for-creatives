@@ -382,6 +382,14 @@ svg {
   border-radius: var(--radius-lg);
 }
 
+.rounded-top-only {
+  border-radius: 0;
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 /* Perfect circles (avatars, icons) */
 .rounded-full {
   border-radius: var(--radius-full);
@@ -564,14 +572,14 @@ sup {
 
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
-  font-size: 2.875rem;
-  color: var(--color-text-work-grid-title);
+  font-size: 2.5rem;
+  color: #FF0068;
   text-wrap: balance;
 }
 
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
-  color: var(--color-text-project-category);
+  color: #FF0068;
 }
 
 /*
@@ -851,8 +859,7 @@ a.nav-link-primary:hover {
 
 /* Project container for background and padding */
 .project-container {
-  background: var(--color-accent-primary); /* Set project background color */
-  padding: var(--padding-medium);
+  padding: var(--padding-tiny);
 }
 
 /* Overlay (appears on hover) */
