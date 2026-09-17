@@ -107,10 +107,10 @@
   --color-text-primary: #222;
   --color-text-secondary: #333;
   --color-accent-primary: #FF0068;
-  --color-accent-secondary: #FF0068;
+  --color-accent-secondary: #ffffff;
   --color-overlay-primary: rgb(255, 0, 102);
   --color-highlight: lemonchiffon;
-  --color-fallback: #ff057c; /* Fallback color for glitch effect on 404 page */
+  --color-fallback: #565455; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
   --color-bg: #ffffff;
   --color-bg-about: #ffffff;
@@ -452,7 +452,7 @@ h1 {
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--h1-color);
+  color: var(--color-bg);
 }
 
 h2 {
@@ -523,10 +523,11 @@ sup {
 
 /* Main hero headline — usually sits in the intro section */
 .hero-headline {
-  color: var(--color-accent-primary); /* Uses your brand's dominant color */
+  color: var(--color-accent-secondary); /* Uses your brand's dominant color */
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
   text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
-  margin-inline: auto; /* Horizontally centers the text in its container */
+  margin-inline: auto;
+  background: var(--color-accent-primary) /* Horizontally centers the text in its container */
 }
 
 /* Large project title — appears on individual project pages */
@@ -565,7 +566,7 @@ sup {
 }
 
 .hero-photo {
-  background-image: url('../assets/branding-images/chipmunk-header-v9.jpg');
+  background-image: url('../assets/branding-images/chipmunk-header-v11.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -579,7 +580,7 @@ sup {
 
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
-  color: #FF0068;
+  color: #565455;
 }
 
 /*
@@ -725,7 +726,8 @@ a.nav-link-primary:hover {
   align-items: center;
   justify-content: center;
   padding: var(--padding-small);
-  text-align: center; /* Keeps text centered */
+  text-align: center;
+   /* Keeps text centered */
 }
 
 .hero-icon {
