@@ -460,7 +460,7 @@ h2 {
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--h2-color);
+  color: var(--color-text-holding-footer);
 }
 
 h3 {
@@ -632,7 +632,7 @@ a:active {
 /* -------------------------------------------------------------------------- */
 
 a.nav-link-primary {
-  color: var(--color-nav-link);
+  color: var(--color-accent-secondary);
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
@@ -708,9 +708,10 @@ a.nav-link-primary:hover {
 .nav-branding-group {
   display: flex;
   flex-direction: row;
+  background-color: #FF0068;
 }
 .nav-branding-item {
-  padding: var(--padding-tiny);
+  padding: var(--padding-small);
 }
 
 .nav-branding-logo img {
@@ -1400,6 +1401,7 @@ to keep your styles reusable and consistent.
 
   h2 {
     font-size: 2.25rem;
+    background-color: var(--color-accent-primary);
   }
 
   h3 {

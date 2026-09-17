@@ -20,7 +20,7 @@
           <!-- Logo (standalone LI) -->
           <li class="nav-branding-logo">
             <a href="about.html">
-              <img src="assets/branding-images/Charis-logo.svg" alt="Charis Catotocan logo" />
+              <img src="assets/branding-images/charis-catotocan-logo-colour.svg" alt="Charis Catotocan logo" />
             </a>
           </li>
           <li class="nav-branding-item">
@@ -122,35 +122,46 @@
       </section>
     </main>
    
-  <footer class="footer-global">
-    <ul class="footer-list">
+  <ul class="footer-global">
+      <li class="footer-tagline">
+        <h2>connect</h2>
+        <p>Feel free to reach out with any questions, collaborations, or just to chat about design.</p>
+      </li>
+      <li class="footer-highlights">
+        <h2>contacts</h2>
+        <ul class="footer-socials-list">
+          <li class="footer-item"><a href="#">Insta</a></li>
+          <li class="footer-item"><a href="#">LinkedIn</a></li>
+          <li class="footer-item"><a href="#">Behance</a></li>
+        </ul>
+      </li>
 
-    <li class="footer-highlights">
-      <h2>awards &amp; recognition</h2>
+      <li class="footer-full-width">
+        <p><a href="#top">Smooth scroll to the top</a></p>
 
-      <ul class="footer-awards-list">
+        <script>
+          document.getElementById("copyright-years").textContent += new Date().getFullYear();
+        </script>
+      </li>
+    </ul>
+    <script src="./lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+  </body>
+</html>
 
-        <li class="footer-item">
-          <a href="https://www.appliedartsmag.com/winners/student/memory-lane-w468/?year=2026">
-            2026 Applied Arts / Entire Promotional Design Program
-          </a>
-        </li>
 
-        <li class="footer-item">
-          <a href="https://descan.ca/2025-jim-rimmer-scholarship-award-winners/">
-            2025 Jim Rimmer Scholarship / Honourable Mention
-          </a>
-        </li>
+    <script>
+      myID = document.getElementById("myID");
 
-        <li class="footer-item">
-          <a href="https://descan.ca/2024-jim-rimmer-scholarship-award-winners/">
-            2024 Jim Rimmer Scholarship / Honourable Mention
-          </a>
-        </li>
-      </ul>
-    </li>
+      var myScrollFunc = function () {
+        var y = window.scrollY;
+        if (y >= 800) {
+          myID.className = "bottomMenu show";
+        } else {
+          myID.className = "bottomMenu hide";
+        }
+      };
 
-    <li class="footer-contact-social">
-      <h2>socials</h2>
-
- <div id="footer-placeholder"></div>
+      window.addEventListener("scroll", myScrollFunc);
+    </script>
+  </body>
+</html>
