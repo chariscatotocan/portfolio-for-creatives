@@ -5,8 +5,8 @@
     <meta name="description" content="This is Charis Catotocan's portfolio website. Feel free to explore and visit all of the pages!" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="assets/branding-images/charis-catotocan-logo-favicon.svg" />
-    <link rel="icon" type="image/png" href="assets/branding-images/charis-catotocan-logo-favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="assets/branding-images/charis-catotocan-logo-favicon-c.svg" />
+    <link rel="icon" type="image/png" href="assets/branding-images/charis-catotocan-logo-favicon-c.svg" />
     <meta property="og:image" content="screenshot.jpg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -111,50 +111,40 @@
               </div>
             </a>
           </li>
+          <li class="work-page-grid-item project-container">
+              <div class="project-details-overlay">
+                <figure>
+                <img src="assets/branding-images/charis-catotocan-personal-tagline.svg" width="1920" height="1080" alt="Charis Catotocan personal tagline" class="margin-bottom"/>
+              </figure>
+                <h3 class="work-grid-project-category">With every project I scrounge up and every tale I weave, there’s one thing at the heart of it all: creating for the everyday person and the communities they call home.</h3>
+              </div>
+            </a>
+          </li>
         </ul>
       </section>
     </main>
    
-  <ul class="footer-global">
+ <ul class="footer-global">
       <li class="footer-tagline">
-        <h2>connect</h2>
-        <p>Feel free to reach out with any questions, collaborations, or just to chat about design.</p>
-      </li>
-      <li class="footer-highlights">
-        <h2>contacts</h2>
+        <img src="assets/branding-images/charis-catotocan-logo-yellow.svg" width="1920" height="1080" alt="Charis Catotocan personal tagline"/>
+      <li class="footer-full-width">
+        <p class="footer-fineprint">
+          &copy; <span id="copyright-years">2020-</span>. Hand crafted with
+          <span class="heart">❤</span>
+          by Charis Catotocan.
+        </p>
+        <script>
+          document.getElementById("copyright-years").textContent += new Date().getFullYear();
+        </script>
+      <li class="footer-contact-social">
         <ul class="footer-socials-list">
           <li class="footer-item"><a href="#">Insta</a></li>
           <li class="footer-item"><a href="#">LinkedIn</a></li>
           <li class="footer-item"><a href="#">Behance</a></li>
         </ul>
       </li>
-
-      <li class="footer-full-width">
-        <p><a href="#top">Smooth scroll to the top</a></p>
-
-        <script>
-          document.getElementById("copyright-years").textContent += new Date().getFullYear();
-        </script>
-      </li>
     </ul>
-    <script src="./lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
-  </body>
-</html>
 
-
-    <script>
-      myID = document.getElementById("myID");
-
-      var myScrollFunc = function () {
-        var y = window.scrollY;
-        if (y >= 800) {
-          myID.className = "bottomMenu show";
-        } else {
-          myID.className = "bottomMenu hide";
-        }
-      };
-
-      window.addEventListener("scroll", myScrollFunc);
-    </script>
+    
   </body>
 </html>
