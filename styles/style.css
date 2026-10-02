@@ -32,8 +32,8 @@
 /* TODO: Replace these Google Fonts with the ones you want to use on your site. */
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
-/* Special Gothic Expanded One Font (for headers or special text) */
-@import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap");
+/* BBH Hegarty (for headers or special text) */
+@import url("https://fonts.googleapis.com/css2?family=BBH+Hegarty&display=swap");
 
 /* Outfit (clean and modern for body text) */
 @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
@@ -101,8 +101,8 @@
 :root {
   /* Typography */
   --font-family-body: "Outfit", sans-serif;
-  --font-family-heading: "Special Gothic Expanded One", serif;
-  --font-family-project-title: "Special Gothic Expanded One", serif;
+  --font-family-heading: "BBH Hegarty", serif;
+  --font-family-project-title: "BBH Hegarty", serif;
   /* Core Colours */
   --color-text-primary: #222;
   --color-text-secondary: #333;
@@ -119,7 +119,7 @@
   /* Headings */
   --h1-color: #FF0068;
   --h2-color: #FF0068;
-  --h3-color: #5200ff;
+  --h3-color: #565455;
   --h4-color: #5200ff;
   --h5-color: #5200ff;
   --h6-color: #5200ff;
@@ -464,8 +464,8 @@ h2 {
 }
 
 h3 {
-  font-size: 1.325rem;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: .25rem;
   line-height: 1.2;
   color: var(--h3-color);
 }
@@ -573,8 +573,9 @@ sup {
 
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
-  font-size: 2.5rem;
-  color: #FF0068;
+  font-family: var(--font-family-heading);
+  font-size: 1.2rem;
+  color: #565455;
   text-wrap: balance;
 }
 
@@ -633,9 +634,17 @@ a:active {
 
 a.nav-link-primary {
   color: var(--color-accent-secondary);
+  font-family: var(--font-family-heading);
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
+}
+a.nav-link-secondary {
+  color: var(--color-accent-primary);
+  font-family: var(--font-family-heading);
+}
+a.nav-link-secondary:hover {
+  color: var(--color-accent-primary);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -701,17 +710,16 @@ a.nav-link-primary:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--padding-tiny);
+  padding: var(--padding-medium);
   align-items: center;
 }
 
 .nav-branding-group {
   display: flex;
   flex-direction: row;
-  background-color: #FF0068;
 }
 .nav-branding-item {
-  padding: var(--padding-tiny);
+  padding: var(--padding-small);
 }
 
 .nav-branding-logo img {
@@ -862,7 +870,7 @@ a.nav-link-primary:hover {
 
 /* Project container for background and padding */
 .project-container {
-  padding: var(--padding-tiny);
+  padding: var(--padding-small);
 }
 
 /* Overlay (appears on hover) */
