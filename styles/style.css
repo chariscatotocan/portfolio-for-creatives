@@ -571,6 +571,12 @@ sup {
   background-position: center;
 }
 
+.tayo-hero-photo {
+  background-image: url('../assets/branding-images/project-images/tayo-project/charis-catotocan-tayo-project-header.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
   font-family: var(--font-family-heading);
@@ -582,6 +588,34 @@ sup {
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
   color: #565455;
+}
+
+.project-intro-description-container {
+  height: auto;
+}
+
+.project-page-classification {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-key-descriptions {
+  padding: 0.5rem 1rem;
+  border: 1px solid #565455;
+  color: #565455;
+  border-radius: 60px;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.project-award {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  border-radius: 60px;
+  font-size: 0.85rem;
 }
 
 /*
