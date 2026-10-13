@@ -106,8 +106,8 @@
   /* Core Colours */
   --color-text-primary: #222;
   --color-text-secondary: #333;
-  --color-accent-primary: #FF0068;
-  --color-accent-secondary: #ffffff;
+  --color-accent-primary: #ffffff;
+  --color-accent-secondary: #FF0068;
   --color-overlay-primary: rgb(255, 0, 102);
   --color-highlight: lemonchiffon;
   --color-fallback: #565455; /* Fallback color for glitch effect on 404 page */
@@ -675,14 +675,14 @@ a:active {
 /* -------------------------------------------------------------------------- */
 
 a.nav-link-primary {
-  color: var(--color-accent-secondary);
+  color: var(--color-accent-primary);
   font-family: var(--font-family-heading);
 }
 a.nav-link-primary:hover {
   color: var(--font-family-heading);
 }
 a.nav-link-secondary {
-  color: var(--color-accent-primary);
+  color: var(--color-accent-secondary);
   font-family: var(--font-family-heading);
 }
 a.nav-link-secondary:hover {
@@ -754,6 +754,15 @@ a.nav-link-secondary:hover {
   justify-content: space-between;
   padding: var(--padding-medium);
   align-items: center;
+}
+
+.nav-branding-dark-mode {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--padding-medium);
+  align-items: center;
+  
 }
 
 .nav-branding-group {
