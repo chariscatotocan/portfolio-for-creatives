@@ -135,12 +135,12 @@
   --color-link-hover: #111;
   --color-link-visited: #FF0068;
   /* Navigation */
-  --color-nav-link: #FF0068;
+  --color-nav-link: #565455;
   --color-nav-link-hover: #321575;
-  --color-nav-arrow: #FF0068;
-  --color-nav-arrow-hover: #000;
-  --color-nav-arrow-stroke: #FF0068;
-  --color-nav-arrow-stroke-hover: #000;
+  --color-nav-arrow: #565455;
+  --color-nav-arrow-hover: #FF0068;
+  --color-nav-arrow-stroke: #565455;
+  --color-nav-arrow-stroke-hover: #FF0068;
   /* Components */
   --color-bg-full-width: #f5f5f5;
   --color-bg-project-description: #ffffff;
@@ -577,6 +577,12 @@ sup {
   background-position: center;
 }
 
+.memory-lane-hero-photo {
+  background-image: url('../assets/branding-images/project-images/memory-lane-project/charis-catotocan-memory-lane-project-thumbnail.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
   font-family: var(--font-family-heading);
@@ -607,15 +613,17 @@ sup {
   border-radius: 60px;
   font-size: 0.85rem;
   margin-top: 1rem;
+  margin-right: .5rem;
 }
 
 .project-award {
   padding: 0.5rem 1rem;
-  border: 1px solid #000;
-  background-color: #000;
+  border: 1px solid #FF0068;
+  background-color: #FF0068;
   color: #fff;
   border-radius: 60px;
   font-size: 0.85rem;
+  margin-top: .5rem;
 }
 
 /*
