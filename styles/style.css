@@ -104,50 +104,55 @@
   --font-family-heading: "BBH Hegarty", serif;
   --font-family-project-title: "BBH Hegarty", serif;
   /* Core Colours */
-  --color-text-primary: #222;
-  --color-text-secondary: #333;
+  --color-text-primary: #18103d;
+  --color-text-secondary: #18103d;
   --color-accent-primary: #ffffff;
-  --color-accent-secondary: #FF0068;
+  --color-accent-secondary: #ff0068;
   --color-overlay-primary: rgb(255, 0, 102);
   --color-highlight: lemonchiffon;
-  --color-fallback: #565455; /* Fallback color for glitch effect on 404 page */
+  --color-fallback: #18103d; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
   --color-bg: #ffffff;
   --color-bg-about: #ffffff;
   --color-bg-footer: #ffffff;
   --color-bg-holding-page: rgba(82, 0, 255, 0.6);
   /* Headings */
-  --h1-color: #FF0068;
-  --h2-color: #FF0068;
-  --h3-color: #565455;
+  --h1-color: #ff0068;
+  --h2-color: #ff0068;
+  --h3-color: #18103d;
   --h4-color: #5200ff;
   --h5-color: #5200ff;
   --h6-color: #5200ff;
   /* Special Text Colours */
   --color-text-holding-title: #ebedf0;
   --color-text-project-category: #ffffff;
-  --color-text-project-description: #222;
+  --color-text-project-description: #18103d;
   --color-text-project-sidebar: #222;
   --color-text-project-title: #5200ff;
   --color-text-work-grid-title: #ffffff;
   /* Link States */
-  --color-link: #FF0068;
+  --color-link: #ff0068;
   --color-link-hover: #111;
-  --color-link-visited: #FF0068;
+  --color-link-visited: #ff0068;
   /* Navigation */
-  --color-nav-link: #565455;
+  --color-nav-link: #18103d;
   --color-nav-link-hover: #321575;
-  --color-nav-arrow: #565455;
-  --color-nav-arrow-hover: #FF0068;
-  --color-nav-arrow-stroke: #565455;
-  --color-nav-arrow-stroke-hover: #FF0068;
+  --color-nav-arrow: #18103d;
+  --color-nav-arrow-hover: #ff0068;
+  --color-nav-arrow-stroke: #18103d;
+  --color-nav-arrow-stroke-hover: #ff0068;
   /* Components */
   --color-bg-full-width: #f5f5f5;
   --color-bg-project-description: #ffffff;
   --color-bg-sidebar-project: orangered;
   --color-bg-sidebar-work: lemonchiffon;
   --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
-  --color-gradient-project-details: linear-gradient(-225deg, #ff057c 0%, #8d0b93 50%, #321575 100%);
+  --color-gradient-project-details: linear-gradient(
+    -225deg,
+    #ff057c 0%,
+    #8d0b93 50%,
+    #321575 100%
+  );
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #f8f8ff;
@@ -201,7 +206,8 @@
 html {
   box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
   scroll-behavior: smooth; /* Adds smooth scrolling between sections */
-  cursor: url("assets/project-1/birthday-1.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
+  cursor:
+    url("assets/project-1/birthday-1.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
 
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
@@ -229,7 +235,9 @@ body {
 /* ------------------------------- */
 
 ::selection {
-  background: var(--color-bg-selection); /* Uses your custom color for highlighted text */
+  background: var(
+    --color-bg-selection
+  ); /* Uses your custom color for highlighted text */
 }
 
 /* ---------------------------------------- */
@@ -465,7 +473,7 @@ h2 {
 
 h3 {
   font-size: 1.2rem;
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
   line-height: 1.2;
   color: var(--h3-color);
 }
@@ -527,7 +535,9 @@ sup {
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
   text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
   margin-inline: auto;
-  background: var(--color-accent-primary) /* Horizontally centers the text in its container */
+  background: var(
+    --color-accent-primary
+  ); /* Horizontally centers the text in its container */
 }
 
 /* Large project title — appears on individual project pages */
@@ -543,6 +553,14 @@ sup {
   font-size: 1.225rem;
   line-height: 1.2;
   color: var(--color-text-project-description);
+  margin-bottom: 1rem;
+}
+
+.project-disclaimer {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--color-text-project-description);
+  opacity: 50%;
   margin-bottom: 1rem;
 }
 
@@ -566,19 +584,37 @@ sup {
 }
 
 .hero-photo {
-  background-image: url('../assets/branding-images/chipmunk-header-v11.jpg');
+  background-image: url("../assets/branding-images/chipmunk-header-v11.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .tayo-hero-photo {
-  background-image: url('../assets/branding-images/project-images/tayo-project/charis-catotocan-tayo-project-header.jpg');
+  background-image: url("../assets/branding-images/project-images/tayo-project/charis-catotocan-tayo-project-header.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .memory-lane-hero-photo {
-  background-image: url('../assets/branding-images/project-images/memory-lane-project/charis-catotocan-memory-lane-project-thumbnail.jpg');
+  background-image: url("../assets/branding-images/project-images/memory-lane-project/charis-catotocan-memory-lane-project-thumbnail.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.tochi-hero-photo {
+  background-image: url("../assets/branding-images/project-images/tochi-project/charis-catotocan-tochi-project-thumbnail.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.through-through-hero-photo {
+  background-image: url("../assets/branding-images/project-images/through-through-project/charis-catotocan-through-through-project-thumbnail.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.in-progress-hero-photo {
+  background-image: url("../assets/branding-images/charis-catotocan-project-in-progress-thumbnail.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -587,13 +623,13 @@ sup {
 .work-grid-project-title {
   font-family: var(--font-family-heading);
   font-size: 1.2rem;
-  color: #565455;
+  color: #18103d;
   text-wrap: balance;
 }
 
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
-  color: #565455;
+  color: #18103d;
 }
 
 .project-intro-description-container {
@@ -608,22 +644,23 @@ sup {
 
 .project-key-descriptions {
   padding: 0.5rem 1rem;
-  border: 1px solid #565455;
-  color: #565455;
+  border: 1px solid #18103d;
+  background-color: #18103d;
+  color: #ffffff;
   border-radius: 60px;
   font-size: 0.85rem;
   margin-top: 1rem;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .project-award {
   padding: 0.5rem 1rem;
-  border: 1px solid #FF0068;
-  background-color: #FF0068;
-  color: #fff;
+  border: 1px solid #18103d;
+  color: #18103d;
   border-radius: 60px;
   font-size: 0.85rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
+  width: fit-content;
 }
 
 /*
@@ -762,7 +799,6 @@ a.nav-link-secondary:hover {
   justify-content: space-between;
   padding: var(--padding-medium);
   align-items: center;
-  
 }
 
 .nav-branding-group {
@@ -787,7 +823,7 @@ a.nav-link-secondary:hover {
   justify-content: center;
   padding: var(--padding-small);
   text-align: center;
-   /* Keeps text centered */
+  /* Keeps text centered */
 }
 
 .hero-icon {
@@ -807,7 +843,6 @@ a.nav-link-secondary:hover {
   justify-content: space-between;
   padding: var(--padding-small);
 }
-
 
 /*
 
@@ -832,7 +867,9 @@ a.nav-link-secondary:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-full-width); /* Background color for full-width sections */
+  background: var(
+    --color-bg-full-width
+  ); /* Background color for full-width sections */
   margin-bottom: 1rem;
 }
 
@@ -886,13 +923,17 @@ a.nav-link-secondary:hover {
 .portfolio,
 .project-wrapper,
 .work-sidebar-wrapper {
-  padding: var(--padding-tiny); /* Padding to keep content from touching edges */
+  padding: var(
+    --padding-tiny
+  ); /* Padding to keep content from touching edges */
 }
 
 /* Work Sidebar on Mobile */
 .work-sidebar {
   width: 100%;
-  background: var(--color-bg-sidebar-work); /* Background color for the sidebar */
+  background: var(
+    --color-bg-sidebar-work
+  ); /* Background color for the sidebar */
 }
 
 /* Main Work Area with Sidebar on Mobile */
@@ -903,7 +944,10 @@ a.nav-link-secondary:hover {
 /* Defining the work page grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates a responsive grid */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Creates a responsive grid */
   grid-gap: 1rem; /* Space between grid items */
   /* The auto-fit and minmax() function help ensure responsiveness across screen sizes */
 }
@@ -941,7 +985,9 @@ a.nav-link-secondary:hover {
   align-items: center;
   flex-direction: column;
   padding: var(--padding-small);
-  background-color: var(--color-overlay-primary); /* Background color of the overlay */
+  background-color: var(
+    --color-overlay-primary
+  ); /* Background color of the overlay */
   transition:
     opacity var(--duration-normal),
     visibility var(--duration-normal);
@@ -1202,7 +1248,7 @@ a.nav-link-secondary:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 1rem; /* Space below the image */
+  margin-bottom: 0.5rem; /* Space below the image */
 }
 
 /* Container for project description */
@@ -1214,7 +1260,7 @@ a.nav-link-secondary:hover {
   background: var(--color-bg-project-description);
   padding: var(--padding-small);
   width: 100%;
-  margin-bottom: 1rem; /* Space below the description */
+  margin-bottom: 0.5rem; /* Space below the description */
 }
 
 /* Column styles for one-column, two-column and four-column layouts (mobile-first) */
@@ -1341,7 +1387,9 @@ a.nav-link-secondary:hover {
 
 .holding-page-copyright {
   font-size: 0.8rem; /* Smaller font size for copyright text */
-  color: var(--color-text-holding-footer); /* Custom color for the footer text */
+  color: var(
+    --color-text-holding-footer
+  ); /* Custom color for the footer text */
   margin-bottom: 0; /* Removes default margin from the bottom of the copyright text */
 }
 
@@ -1641,35 +1689,35 @@ to keep your styles reusable and consistent.
     padding-right: var(--padding-medium);
     padding-bottom: 0;
     padding-left: var(--padding-medium);
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Three equal columns */
   }
 
   /* Column 1: Tagline/Message */
   .footer-tagline {
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
     grid-row: 1 / 2;
   }
 
   /* Column 2: Awards & Works */
   .footer-highlights {
-    grid-row: 1 ;
-    grid-column: 2 / 3;
+    grid-column: 1 / 3;
+    grid-row: 2/ 3;
   }
 
   /* Column 3: Contact & Social */
   .footer-contact-social {
-    grid-row: 1;
-    grid-column:  4;
+    grid-column: 4 / 5;
+    grid-row: 2/3;
   }
 
   /* ------------------------------- */
   /* 📏 FULL-WIDTH BOTTOM SECTION */
   /* ------------------------------- */
   .footer-full-width {
-    grid-row: 1;
-    grid-column: 2; /* Spans all three columns */
-    text-align: left;
-    align-self: center; /* Aligns content to bottom */
+    grid-row: 3/4;
+    grid-column: 1/5; /* Spans all three columns */
+    text-align: center;
+
     padding-bottom: var(--padding-medium);
   }
 
