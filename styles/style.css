@@ -472,7 +472,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 0.25rem;
   line-height: 1.2;
   color: var(--h3-color);
@@ -542,10 +542,12 @@ sup {
 
 /* Large project title — appears on individual project pages */
 .project-title {
-  font-size: 3.625rem;
+  font-size: 3.5rem;
   font-family: var(--font-family-project-title);
   color: var(--color-text-project-title);
   margin-bottom: 1rem;
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
 }
 
 /* Project description text — pairs with the project title */
@@ -554,6 +556,7 @@ sup {
   line-height: 1.2;
   color: var(--color-text-project-description);
   margin-bottom: 1rem;
+  grid-row: 3 / 4;
 }
 
 .project-disclaimer {
@@ -637,7 +640,7 @@ sup {
 }
 
 .project-page-classification {
-  grid-column: 1 / 2;
+  grid-row: 2 / 3;
   display: flex;
   flex-wrap: wrap;
 }
@@ -1263,12 +1266,33 @@ a.nav-link-secondary:hover {
   margin-bottom: 0.5rem; /* Space below the description */
 }
 
+.project-description-container-grid {
+  padding: var(--padding-large) var(--padding-ultra);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 /* Column styles for one-column, two-column and four-column layouts (mobile-first) */
-.col-1,
-.col-2,
+.col-1 {
+  width: 100%;
+  grid-column: 1 / 5;
+  grid-row: 2 / 3;
+}
+
+.col-2 {
+  width: 100%;
+  grid-column: 1 / 5;
+  grid-row: 3 / 4;
+}
+
+.col-3 {
+  width: 100%;
+  grid-column: 5 / 6;
+  grid-row: 5 / 6;
+}
+
 .col-4 {
   width: 100%;
-  padding: var(--padding-small);
+  grid-column: 1 / 6;
 }
 
 /* Project image styling */
@@ -1513,7 +1537,7 @@ to keep your styles reusable and consistent.
   }
 
   h3 {
-    font-size: 1.625rem;
+    font-size: 3.25rem;
   }
 
   .h1-full-width,
@@ -1653,7 +1677,7 @@ to keep your styles reusable and consistent.
     width: 50%;
   }
   .col-4 {
-    width: 25%;
+    width: 100%;
   }
 
   .project-navigation {
