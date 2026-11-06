@@ -321,6 +321,28 @@ svg {
   transform: rotate(4deg);
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 2;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ----------------------------- */
 /* 📦 Padding Utilities (Mobile First) */
 /* ----------------------------- */
@@ -667,8 +689,34 @@ sup {
   color: #ffffff;
   border-radius: 60px;
   font-size: 0.85rem;
-  margin-top: 1rem;
   margin-right: 0.5rem;
+}
+
+.case-study {
+  padding: 0.5rem 1rem;
+  border: 1px solid #18103d;
+  background-color: #18103d;
+  color: #ffffff;
+  border-radius: 60px;
+  font-size: 0.85rem;
+  width: fit-content;
+  margin-top: 2rem;
+  transition:
+    background-color var(--duration-normal) ease,
+    border-color var(--duration-normal) ease;
+}
+
+.case-study:hover {
+  background-color: var(--color-accent-secondary); /* pink, #ff0068 */
+  border-color: var(--color-accent-secondary);
+}
+
+/* Keep the text white through the fade */
+.case-study a:link,
+.case-study a:visited,
+.case-study a:hover,
+.case-study a:active {
+  color: var(--color-accent-primary);
 }
 
 .project-awards-heading {
@@ -720,12 +768,12 @@ a:link {
 
 /* Visited link — after a user clicks and returns */
 a:visited {
-  color: var(--color-link-visited);
+  color: var(--color-accent-primary);
 }
 
 /* Hover — when a user hovers their mouse over the link */
 a:hover {
-  color: var(--color-link-hover);
+  color: var(--color-accent-primary);
 }
 
 /* Focus — when a link is focused (keyboard navigation) */
@@ -1292,7 +1340,6 @@ a.nav-link-secondary:hover {
   background: var(--color-bg-project-description);
   padding: var(--padding-small);
   width: 100%;
-  margin-bottom: 0.5rem; /* Space below the description */
 }
 
 .project-awards-container {
@@ -1309,7 +1356,6 @@ a.nav-link-secondary:hover {
 .project-description-container-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: auto auto auto;
   column-gap: 3rem;
   row-gap: 1.5rem;
   align-content: start;
@@ -1317,12 +1363,19 @@ a.nav-link-secondary:hover {
   width: 100%;
 }
 
-.project-supporting-description-grid {
+.project-caption-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: auto auto;
   column-gap: 3rem;
-  row-gap: 1.5rem;
+  align-content: start;
+  padding: var(--padding-large) var(--padding-ultra);
+  width: 100%;
+}
+
+.next-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 3rem;
   align-content: start;
   padding: var(--padding-large) var(--padding-ultra);
   width: 100%;
@@ -1351,7 +1404,7 @@ a.nav-link-secondary:hover {
 /* Description occupies the left column */
 .project-description-container-grid > .col-2 {
   grid-column: 1;
-  grid-row: 3;
+  grid-row: 2/3;
 }
 
 /* Awards occupy the right column */
@@ -1371,6 +1424,57 @@ a.nav-link-secondary:hover {
 .project-details {
   width: 100%;
   padding: var(--padding-small);
+}
+
+.rounded-image {
+  border-radius: var(--radius-lg);
+}
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  background: var(--color-text-primary); /* navy */
+  color: var(--color-accent-primary); /* white */
+  padding: 1rem 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.marquee-group span {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  white-space: nowrap;
+  padding-right: 2rem;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--shift)));
+  }
+}
+
+/* Pause on hover */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
 
 /* Previous/Next Arrow Styles */
