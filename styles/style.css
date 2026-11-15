@@ -32,8 +32,8 @@
 /* TODO: Replace these Google Fonts with the ones you want to use on your site. */
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
-/* BBH Hegarty (for headers or special text) */
-@import url("https://fonts.googleapis.com/css2?family=BBH+Hegarty&display=swap");
+/* Darumadrop One (for headers or special text) */
+@import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap");
 
 /* Outfit (clean and modern for body text) */
 @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
@@ -101,8 +101,8 @@
 :root {
   /* Typography */
   --font-family-body: "Outfit", sans-serif;
-  --font-family-heading: "BBH Hegarty", serif;
-  --font-family-project-title: "BBH Hegarty", serif;
+  --font-family-heading: "Darumadrop One", serif;
+  --font-family-project-title: "Darumadrop One", serif;
   /* Core Colours */
   --color-text-primary: #18103d;
   --color-text-secondary: #18103d;
@@ -112,9 +112,9 @@
   --color-highlight: lemonchiffon;
   --color-fallback: #18103d; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #ffffff;
-  --color-bg-about: #ffffff;
-  --color-bg-footer: #ffffff;
+  --color-bg: #lemonchiffon;
+  --color-bg-about: #lemonchiffon;
+  --color-bg-footer: #lemonchiffon;
   --color-bg-holding-page: rgba(82, 0, 255, 0.6);
   /* Headings */
   --h1-color: #ff0068;
@@ -131,8 +131,8 @@
   --color-text-project-title: #5200ff;
   --color-text-work-grid-title: #ffffff;
   /* Link States */
-  --color-link: #ff0068;
-  --color-link-hover: #111;
+  --color-link: #18103d;
+  --color-link-hover: #ff0068;
   --color-link-visited: #ff0068;
   /* Navigation */
   --color-nav-link: #18103d;
@@ -156,7 +156,7 @@
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #f8f8ff;
-  --color-bg-selection: #5200ff;
+  --color-bg-selection: #ffd3e5;
   --color-shadow-stroke: rgba(0, 0, 0, 0.4);
   /* Assets */
   --image-noise-texture: url(/assets/temp/noise.svg);
@@ -176,6 +176,9 @@
   --padding-large: 3rem; /* Section spacing: content blocks, banner padding */
   --padding-jumbo: 4rem; /* Hero elements: full-width containers, page headers */
   --padding-ultra: 8rem; /* Full-bleed spacing: edge-to-edge layouts, super-sized headers */
+  --next-project-side-padding: var(
+    --padding-small
+  ); /* "More work" heading + next project cards */
   /* Flex Gap Scale */
   --gap-tiny: 0.5rem; /* Micro-gap: icon spacing, small button groups */
   --gap-small: 1rem; /* Compact gap: card elements, form fields */
@@ -207,7 +210,7 @@ html {
   box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
   scroll-behavior: smooth; /* Adds smooth scrolling between sections */
   cursor:
-    url("assets/project-1/birthday-1.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
+    url("../assets/branding-images/my-cursor.png"), auto; /* Custom cursor (change the URL below to use your own) */
 
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
@@ -498,6 +501,7 @@ h3 {
   margin-bottom: 0.25rem;
   line-height: 1.2;
   color: var(--h3-color);
+  font-family: var(--font-family-heading);
 }
 
 h4 {
@@ -553,17 +557,46 @@ sup {
 
 /* Main hero headline — usually sits in the intro section */
 .hero-headline {
-  color: var(--color-accent-primary); /* Uses your brand's dominant color */
+  color: var(--color-accent-secondary); /* Uses your brand's dominant color */
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
+  font-size: 6rem;
   text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
-  margin-inline: left; /* Horizontally centers the text in its container */
+  text-align: center; /* Horizontally centers the text in its container */
 }
 
 .hero-headline-supporter {
   color: var(--color-accent-secondary); /* Uses your brand's dominant color */
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
   text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
-  margin-inline: left; /* Horizontally centers the text in its container */
+  margin-inline: center; /* Horizontally centers the text in its container */
+}
+
+/* Hero headline: words pop in */
+.hero-pop .w {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.6) translateY(0.4em);
+}
+
+.hero-pop.is-playing .w {
+  animation: hero-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(var(--i) * 45ms + 200ms);
+}
+
+@keyframes hero-pop {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pop .w,
+  .hero-pop.is-playing .w {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 /* Large project title — appears on individual project pages */
@@ -651,14 +684,67 @@ sup {
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
   font-family: var(--font-family-heading);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #18103d;
   text-wrap: balance;
+  position: relative;
+  display: inline-block;
+}
+
+/* Scribble underline: hidden until the card is hovered */
+.work-grid-project-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2em;
+  width: 100%;
+  height: 0.35em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q12 0 22 7 T42 7 T62 7 T82 7 T102 7 T118 7' fill='none' stroke='%23ff0068' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")
+    no-repeat center / 100% 100%;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.6s ease-out;
+}
+
+/* Draw it in when the card is hovered */
+.work-page-grid-item:hover .work-grid-project-title::after {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Reduced motion: still shows on hover, without the draw-in */
+@media (prefers-reduced-motion: reduce) {
+  .work-grid-project-title::after {
+    transition: none;
+  }
+}
+
+/* Thumbnail pop on hover */
+.work-page-grid-item figure {
+  position: relative;
+}
+
+.work-page-grid-item figure img {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.work-page-grid-item:hover figure img {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+/* Reduced motion: no movement */
+@media (prefers-reduced-motion: reduce) {
+  .work-page-grid-item figure img {
+    transition: none;
+  }
+
+  .work-page-grid-item:hover figure img {
+    transform: none;
+  }
 }
 
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
   color: #18103d;
+  opacity: 50%;
 }
 
 .work-grid-footer-description {
@@ -703,12 +789,26 @@ sup {
   margin-top: 2rem;
   transition:
     background-color var(--duration-normal) ease,
-    border-color var(--duration-normal) ease;
+    border-color var(--duration-normal) ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .case-study:hover {
   background-color: var(--color-accent-secondary); /* pink, #ff0068 */
   border-color: var(--color-accent-secondary);
+  transform: scale(1.06) rotate(-1deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-study {
+    transition:
+      background-color var(--duration-normal) ease,
+      border-color var(--duration-normal) ease;
+  }
+
+  .case-study:hover {
+    transform: none;
+  }
 }
 
 /* Keep the text white through the fade */
@@ -739,7 +839,7 @@ sup {
 .column-2 {
   gap: 2rem;
   padding-bottom: 2rem;
-  width: 100vw;
+  width: 100%;
   padding-left: clamp(1.25rem, 6vw, 10.5%);
   padding-right: clamp(1.25rem, 6vw, 10.5%);
 }
@@ -793,7 +893,7 @@ a:active {
 /* -------------------------------------------------------------------------- */
 
 a.nav-link-primary {
-  color: var(--color-accent-primary);
+  color: var(--color-link);
   font-family: var(--font-family-heading);
 }
 a.nav-link-primary:hover {
@@ -856,21 +956,11 @@ a.nav-link-secondary:hover {
 /* Great place for first impression and personal branding                    */
 /* -------------------------------------------------------------------------- */
 
-.hero {
-  width: 100%;
-  min-height: 80vh; /* Takes up most of the screen height */
-  display: flex;
-  flex-direction: column;
-}
-.hero-header {
-  min-height: 6rem; /* Space reserved for logo + nav */
-}
-
 .nav-branding {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--padding-medium);
+  padding: var(--padding-tiny);
   align-items: center;
 }
 
@@ -878,7 +968,7 @@ a.nav-link-secondary:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--padding-medium);
+  padding: var(--padding-tiny);
   align-items: center;
 }
 
@@ -894,16 +984,27 @@ a.nav-link-secondary:hover {
   width: 10rem;
 }
 
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-header {
+  min-height: 6rem;
+}
+
 .hero-headline-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   flex: 1;
-  align-items: left;
-  justify-content: left;
-  padding: var(--padding-medium);
-  text-align: left;
-  /* Keeps text centered */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 .hero-icon {
@@ -921,7 +1022,7 @@ a.nav-link-secondary:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: var(--padding-small);
+  padding: var(--padding-tiny);
 }
 
 /*
@@ -1246,6 +1347,129 @@ a.nav-link-secondary:hover {
   text-indent: -0.5rem; /* Pulls text back toward bullet */
 }
 
+/* Footer tagline: letters pop in */
+.tagline-pop {
+  display: block;
+  width: 100%;
+  font-family: var(--font-family-heading);
+  line-height: 1.05;
+  color: var(--color-accent-secondary);
+  font-size: 7.75rem; /* placeholder: the script fits it to the footer width */
+  white-space: nowrap;
+  margin-bottom: 1rem;
+}
+
+/* Each line is a single row that never wraps */
+.tagline-line {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 0.22em;
+  width: 100%;
+}
+
+/* Line 1: "because" on the left, "i" pushed to the right edge */
+.tagline-line-split {
+  justify-content: space-between;
+}
+
+.tagline-word {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.tagline-pop .ch {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.3) translateY(0.3em);
+}
+
+.tagline-flower {
+  flex: none;
+  height: 0.42em;
+  width: auto;
+  max-width: none;
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+/* Starts when the footer fades into view */
+.footer-tagline.is-visible .tagline-pop .ch,
+.footer-tagline.is-visible .tagline-flower {
+  animation: tagline-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(var(--i) * 60ms + 300ms);
+}
+
+@keyframes tagline-pop {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tagline-pop .ch,
+  .tagline-flower,
+  .footer-tagline.is-visible .tagline-pop .ch,
+  .footer-tagline.is-visible .tagline-flower {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* Supporting paragraph */
+.footer-description {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+  max-width: 38ch;
+  margin-bottom: 0;
+}
+
+/* Footer links: keep them pink on hover (the global hover turns them white) */
+.footer-global a:link,
+.footer-global a:visited,
+.footer-global a:hover,
+.footer-global a:active {
+  color: var(--color-link);
+}
+
+/* Footer links: same scribble underline as the project titles */
+.footer-item a,
+.footer-full-width p > a {
+  position: relative;
+  display: inline-block;
+}
+
+.footer-item a::after,
+.footer-full-width p > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.3em;
+  width: 100%;
+  height: 0.4em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q12 0 22 7 T42 7 T62 7 T82 7 T102 7 T118 7' fill='none' stroke='%23ff0068' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")
+    no-repeat center / 100% 100%;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.6s ease-out;
+}
+
+.footer-item a:hover::after,
+.footer-item a:focus-visible::after,
+.footer-full-width p > a:hover::after,
+.footer-full-width p > a:focus-visible::after {
+  clip-path: inset(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-item a::after,
+  .footer-full-width p > a::after {
+    transition: none;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* ✨ Footer Special Elements                                                 */
 /* -------------------------------------------------------------------------- */
@@ -1420,6 +1644,15 @@ a.nav-link-secondary:hover {
   align-items: center;
   justify-content: center;
 }
+
+.project-image img {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 /* Project details section */
 .project-details {
   width: 100%;
@@ -1430,11 +1663,14 @@ a.nav-link-secondary:hover {
   border-radius: var(--radius-lg);
 }
 
+/* ------------------------------- */
+/* 🌸 Marquee + flower divider */
+/* ------------------------------- */
+
 .marquee {
   overflow: hidden;
   width: 100%;
-  background: var(--color-text-primary); /* navy */
-  color: var(--color-accent-primary); /* white */
+  color: var(--color-nav-arrow); /* white */
   padding: 1rem 0;
 }
 
@@ -1451,7 +1687,7 @@ a.nav-link-secondary:hover {
 
 .marquee-group span {
   font-family: var(--font-family-heading);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   white-space: nowrap;
   padding-right: 2rem;
 }
@@ -1465,16 +1701,41 @@ a.nav-link-secondary:hover {
   }
 }
 
-/* Pause on hover */
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
+.flower-divider {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+  width: 100%;
+  padding: 1rem var(--padding-small);
+  margin: var(--padding-small) 0;
+  text-align: center;
+  color: var(--color-text-primary);
+  opacity: 50%;
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
 }
 
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
+.flower-divider-glyphs {
+  white-space: nowrap;
+}
+
+/* ------------------------------- */
+/* ➕ "More work" heading */
+/* ------------------------------- */
+
+.more-work-heading {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  color: var(--color-text-primary);
+  padding: 0 var(--padding-jumbo);
+  margin-top: 4rem; /* more space below the fun fact */
+  margin-bottom: 0; /* heading sits right above the cards */
+}
+
+.more-work-heading + .next-project-grid {
+  padding-top: 1rem;
 }
 
 /* Previous/Next Arrow Styles */
@@ -1641,11 +1902,11 @@ to keep your styles reusable and consistent.
 
 /*
 
-███████ ██   ██ ███████ ████████  ██████ ██   ██ ██████   ██████   ██████  ██   ██ 
-██      ██  ██  ██         ██    ██      ██   ██ ██   ██ ██    ██ ██    ██ ██  ██  
-███████ █████   █████      ██    ██      ███████ ██████  ██    ██ ██    ██ █████   
-     ██ ██  ██  ██         ██    ██      ██   ██ ██   ██ ██    ██ ██    ██ ██  ██  
-███████ ██   ██ ███████    ██     ██████ ██   ██ ██████   ██████   ██████  ██   ██ 
+███████ ██   ██ ███████ ████████  ██████ ██   ██ ██████   ██████   ██████  ██   ██ 
+██      ██  ██  ██         ██    ██      ██   ██ ██   ██ ██    ██ ██    ██ ██  ██  
+███████ █████   █████      ██    ██      ███████ ██████  ██    ██ ██    ██ █████   
+     ██ ██  ██  ██         ██    ██      ██   ██ ██   ██ ██    ██ ██    ██ ██  ██  
+███████ ██   ██ ███████    ██     ██████ ██   ██ ██████   ██████   ██████  ██   ██ 
 
 */
 
@@ -1668,15 +1929,10 @@ to keep your styles reusable and consistent.
 
 /* Media Queries for Layout Adjustments */
 
-/* Medium devices (tablets, 768px and up) */
-
-@media (min-width: 768px) {
-  /* TODO: Adjust  layout for tablets */
-}
-
-/* Large devices (desktops, 992px and up) */
-
-/* Switch from mobile to desktop navigation */
+/* ==========================================================================
+   LARGE DEVICES (desktops, 992px and up)
+   Switch from mobile to desktop navigation
+   ========================================================================== */
 
 @media (min-width: 992px) {
   /* TODO: Add or adjust styles here for large devices. */
@@ -1696,7 +1952,8 @@ to keep your styles reusable and consistent.
   }
 
   h1 {
-    font-size: 4.275rem;
+    font-size: 1rem;
+    font-family: outfit;
   }
 
   h2 {
@@ -1705,7 +1962,7 @@ to keep your styles reusable and consistent.
   }
 
   h3 {
-    font-size: 3.25rem;
+    font-size: 4rem;
   }
 
   .h1-full-width,
@@ -1748,9 +2005,8 @@ to keep your styles reusable and consistent.
     flex-direction: row;
   }
 
-  .nav-branding-logo {
-    width: 10rem;
-    /* TODO: Adjust the width of the logo on large devices here. */
+  .nav-branding-logo img {
+    width: clamp(5.5rem, 22vw, 10rem);
   }
 
   .hero {
@@ -1931,9 +2187,112 @@ to keep your styles reusable and consistent.
   }
 }
 
-/* X-Large devices (large desktops, 1200px and up)*/
+/* ==========================================================================
+   TABLET AND BELOW (991px and down)
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  /* Stack paired images and stop them overflowing */
+  .project-image.column-2 {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  /* Less side padding on every text grid */
+  .project-description-container-grid,
+  .project-caption-grid,
+  .next-project-grid {
+    padding: var(--padding-large) var(--padding-medium);
+  }
+
+  /* One column, text uses the full width */
+  .project-caption-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-caption-grid > .project-description {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .project-description-container-grid > .col-2 {
+    grid-column: 1 / -1;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  /* "More work" heading: match the cards' 2rem side padding */
+  .more-work-heading {
+    padding: 0 var(--padding-medium);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 0;
+  }
+
+  .hero {
+    aspect-ratio: auto;
+    min-height: clamp(22rem, 60vw, 40rem);
+  }
+
+  /* Nav: single row */
+  .nav-branding {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-small);
+  }
+
+  .nav-branding > .nav-branding-item {
+    padding: 0;
+  }
+
+  .nav-branding-item {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .nav-branding-group a {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+  }
+}
+
+/* ==========================================================================
+   PHONES (767px and down)
+   ========================================================================== */
 
 @media (max-width: 767px) {
+  .more-work-heading {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    padding: 0 var(--padding-medium);
+  }
+
+  .next-project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Your col-1 tags block was removed from the HTML, so row 2 is now
+     empty on mobile and adds an extra gap. Move the text up. */
+  .project-description-container-grid > .col-2 {
+    grid-row: 2;
+  }
+
+  .project-description {
+    font-size: 1.05rem;
+  }
+
+  .rounded-image {
+    border-radius: var(--radius-md); /* 2rem is heavy on small images */
+  }
+
+  .hero {
+    aspect-ratio: 4 / 3;
+  }
+
   .project-description-container-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -1971,13 +2330,23 @@ to keep your styles reusable and consistent.
   }
 }
 
+/* ==========================================================================
+   SMALL PHONES (400px and down)
+   ========================================================================== */
+
+@media (max-width: 400px) {
+  .nav-branding-item {
+    padding: 0.25rem 0.35rem;
+  }
+}
+
 /*
 
-███████ ██ ███    ██
-██      ██ ████   ██
-█████   ██ ██ ██  ██
-██      ██ ██  ██ ██
-██      ██ ██   ████
+███████ ██ ███    ██
+██      ██ ████   ██
+█████   ██ ██ ██  ██
+██      ██ ██  ██ ██
+██      ██ ██   ████
                                               
 That’s a wrap, class! 🧑‍🎓✨
 
