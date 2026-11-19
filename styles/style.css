@@ -619,7 +619,7 @@ sup {
 }
 
 .project-disclaimer {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   line-height: 1.2;
   color: var(--color-text-project-description);
   opacity: 50%;
@@ -868,7 +868,7 @@ a:link {
 
 /* Visited link — after a user clicks and returns */
 a:visited {
-  color: var(--color-accent-primary);
+  color: var(--color-nav-link);
 }
 
 /* Hover — when a user hovers their mouse over the link */
@@ -883,7 +883,7 @@ a:focus {
 
 /* Active — when the link is actively being clicked or tapped */
 a:active {
-  color: var(--color-link-hover);
+  color: var(--color-nav-link);
   /* Useful for mobile tap interactions */
 }
 
@@ -897,14 +897,54 @@ a.nav-link-primary {
   font-family: var(--font-family-heading);
 }
 a.nav-link-primary:hover {
-  color: var(--font-family-heading);
+  color: var(--color-link);
 }
 a.nav-link-secondary {
-  color: var(--color-accent-secondary);
+  color: var(--color-nav-link);
   font-family: var(--font-family-heading);
 }
 a.nav-link-secondary:hover {
-  color: var(--font-family-heading);
+  color: var(--color-nav-link);
+}
+
+/* Footer + nav links: same scribble underline as the project titles */
+.footer-item a,
+.footer-full-width p > a,
+a.nav-link-primary {
+  position: relative;
+  display: inline-block;
+}
+
+.footer-item a::after,
+.footer-full-width p > a::after,
+a.nav-link-primary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.3em;
+  width: 100%;
+  height: 0.4em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q12 0 22 7 T42 7 T62 7 T82 7 T102 7 T118 7' fill='none' stroke='%23ff0068' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")
+    no-repeat center / 100% 100%;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.6s ease-out;
+}
+
+.footer-item a:hover::after,
+.footer-item a:focus-visible::after,
+.footer-full-width p > a:hover::after,
+.footer-full-width p > a:focus-visible::after,
+a.nav-link-primary:hover::after,
+a.nav-link-primary:focus-visible::after {
+  clip-path: inset(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-item a::after,
+  .footer-full-width p > a::after,
+  a.nav-link-primary::after {
+    transition: none;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -986,7 +1026,7 @@ a.nav-link-secondary:hover {
 
 .hero {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 4rem); /* leaves room for the marquee */
   height: auto;
   display: flex;
   flex-direction: column;
@@ -994,6 +1034,10 @@ a.nav-link-secondary:hover {
 
 .hero-header {
   min-height: 6rem;
+}
+
+.hero-headline {
+  margin-bottom: 5rem;
 }
 
 .hero-headline-wrapper {
@@ -1004,7 +1048,6 @@ a.nav-link-secondary:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem 1rem;
 }
 
 .hero-icon {
@@ -1936,6 +1979,10 @@ to keep your styles reusable and consistent.
 
 @media (min-width: 992px) {
   /* TODO: Add or adjust styles here for large devices. */
+
+  .hero {
+    min-height: calc(100vh - 4rem);
+  }
 
   .flex-row {
     flex-direction: row; /* Changes to row layout on larger screens */
